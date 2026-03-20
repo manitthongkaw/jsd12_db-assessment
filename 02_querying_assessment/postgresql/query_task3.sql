@@ -24,10 +24,10 @@
   2. จับคู่ - ข้อมูลพนักงาน-กับ-ออเดอร์ - ON staff.staff_id = orders.staff_id
   3. รวม - ข้อมูลพนักงาน - GROUP BY staff.staff_id
   4. เรียง - จำนวนครั้งที่รับออเดอร์ จาก มากไปน้อย - ORDER BY order_count desc;
-  5. แสดง - รายชื่อ และจำนวนครั้งที่รับออเดอร์ - SELECT first_name, last_name, COUNT(order_id) AS order_count
+  5. แสดง - รายชื่อเต็ม และจำนวนครั้งที่รับออเดอร์ - SELECT CONCAT(first_name, ' ', last_name) AS full_name, COUNT(order_id) AS order_count
 */
 
-SELECT first_name, last_name, COUNT(order_id) AS order_count
+SELECT CONCAT(first_name, ' ', last_name) AS full_name, COUNT(order_id) AS order_count
 FROM staff
 LEFT JOIN orders
   ON staff.staff_id = orders.staff_id
